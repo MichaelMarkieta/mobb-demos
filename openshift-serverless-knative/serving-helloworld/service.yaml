@@ -1,0 +1,10 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: serving-helloworld
+  namespace: serverless
+spec:
+  template:
+    spec:
+      containers:
+        - image: "serving-helloworld:latest"

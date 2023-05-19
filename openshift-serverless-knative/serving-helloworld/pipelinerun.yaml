@@ -1,0 +1,30 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: serving-helloworld-pipelinerun-
+spec:
+  pipelineRef:
+    name: serving-helloworld-pipeline
+  workspaces:
+    - name: source
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi
+          volumeMode: Filesystem
+  params:
+    - name: gitUrl
+      value: https://github.com/MichaelMarkieta/mobb-demos
+    - name: gitRevision
+      value: main
+    - name: pathToContext
+      value: openshift-serverless-knative/serving-helloworld
+    - name: pathToYamlFile
+      value: openshift-serverless-knative/serving-helloworld/service.yaml
+    - name: imageUrl
+      value: default-route-openshift-image-registry.apps.kayatoast.bufj.p1.openshiftapps.com/serverless/serving-helloworld
+    - name: imageTag
+      value: latest

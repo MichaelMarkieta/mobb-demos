@@ -8,9 +8,9 @@ This folder contains demos of [Red Hat OpenShift Serverless](https://www.redhat.
 
 ### Assumptions
 
-* Working with ROSA
-* Using podman for docker interaction
-* All work done inside the `serverless` OpenShift project (namespace)
+* Logged in to your ROSA or ARO cluster
+* Working inside of a new OpenShift Project `serverless` (variable set below)
+* Able to install operators
 
 ### Install OpenShift Serverless
 
@@ -27,10 +27,13 @@ Follow the [instructions](https://docs.openshift.com/container-platform/4.13/cic
 export PROJECT=serverless
 export GITURL=https://github.com/MichaelMarkieta/mobb-demos
 
+# Expose the image registry default route
+oc patch configs.imageregistry.operator.openshift.io/cluster --patch '{"spec":{"defaultRoute":true}}' --type=merge
+
 # Retrieve your OpenShift Image Registry route
 export REGISTRY=$(oc get route -n openshift-image-registry -o yaml | yq -e ".items.[].spec.host")
 
-# Log in to the image registry
+# Log in to the OpenShift Image Registry
 podman login -u openshift -p $(oc whoami -t) $REGISTRY
 ```
 

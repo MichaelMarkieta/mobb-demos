@@ -11,11 +11,11 @@ This folder contains demos of [Red Hat OpenShift Serverless](https://www.redhat.
 * Logged in to your ROSA or ARO cluster
 * Able to install operators
 
-### Install OpenShift Serverless
+### Install OpenShift Serverless (Knative)
 
 Follow the [instructions](https://docs.openshift.com/serverless/1.29/install/install-serverless-operator.html) to install the OpenShift Serverless operator. You will also need the [Knative cli](https://docs.openshift.com/serverless/1.29/install/installing-kn.html).
 
-### Install OpenShift Pipelines (tekton)
+### Install OpenShift Pipelines (Tekton)
 
 Follow the [instructions](https://docs.openshift.com/container-platform/4.13/cicd/pipelines/installing-pipelines.html) to install the OpenShift Pipelines operator. We will use OpenShift Pipelines to build and deploy the Knative objects in the serverless project. We will deploy Knative Function, Knative Serving, and Knative Eventing objects to the cluster. You will also need the [Tekton cli](https://docs.openshift.com/container-platform/4.13/cli_reference/tkn_cli/installing-tkn.html).
 

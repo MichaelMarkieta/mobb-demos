@@ -9,7 +9,6 @@ This folder contains demos of [Red Hat OpenShift Serverless](https://www.redhat.
 ### Assumptions
 
 * Logged in to your ROSA or ARO cluster
-* Working inside of a new OpenShift Project `serverless` (variable set below)
 * Able to install operators
 
 ### Install OpenShift Serverless

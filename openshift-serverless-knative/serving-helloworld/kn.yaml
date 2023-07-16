@@ -1,3 +1,5 @@
+# Custom version of https://hub.tekton.dev/tekton/task/kn
+# Changes: workspace added so that we can access shared files from previous task runs
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:

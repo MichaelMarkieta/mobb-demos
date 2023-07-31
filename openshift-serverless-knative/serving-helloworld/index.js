@@ -5,7 +5,9 @@ app.get('/', (req, res) => {
   console.log('Hello world received a request.');
 
   const image = process.env.IMAGE;
-  res.send(`<h4>Hello World!</h4><small>serving: ${image}</small>`);
+  const imagestream = image.split("@")[0]
+  const sha256 = image.split("@")[1]
+  res.send(`<h4>Hello OpenShift Serverless: Serving!</h4><p><small>serving: ${imagestream}</small></p><p><small>${sha256}</small></p>`);
 });
 
 const port = process.env.PORT || 8080;

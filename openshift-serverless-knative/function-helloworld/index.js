@@ -15,21 +15,18 @@
  * @param {string} context.httpVersion the HTTP protocol version
  * See: https://github.com/knative/func/blob/main/docs/function-developers/nodejs.md#the-context-object
  */
+
 const handle = async (context, body) => {
   // YOUR CODE HERE
   context.log.info("query", context.query);
   context.log.info("body", body);
 
-  // If the request is an HTTP POST, the context will contain the request body
-  if (context.method === 'POST') {
-    return { body };
-  } else if (context.method === 'GET') {
-    // If the request is an HTTP GET, the context will include a query string, if it exists
-    return {
-      query: context.query,
-    }
-  } else {
-    return { statusCode: 405, statusMessage: 'Method not allowed' };
+  return {
+    statusCode: 200,
+    headers: {
+      "Content-Type": "text/html; charset=utf-8"
+    },
+    body: "<h4>Hello OpenShift Functions!</h4>"
   }
 }
 

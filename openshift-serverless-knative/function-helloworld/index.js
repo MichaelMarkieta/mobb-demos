@@ -26,7 +26,7 @@ const handle = async (context, body) => {
     headers: {
       "Content-Type": "text/html; charset=utf-8"
     },
-    body: "<h4>Hello OpenShift Functions!</h4>"
+    body: "<html><body><h4>Hello OpenShift Serverless: Functions!</h4></body></html>"
   }
 }
 

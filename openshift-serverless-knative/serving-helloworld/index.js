@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
   const image = process.env.IMAGE;
   const imagestream = image.split("@")[0]
   const sha256 = image.split("@")[1]
-  res.send(`<html><body style="background: #0075be; padding: 30px;"><main style="height: 500px; width: 90%; margin: 0 auto; padding: 20px; display: flex; justify-content: center; align-items: center; resize: both; overflow: auto;"><div style="color: #f47920; width: 90%; padding: 20px; resize: both; overflow: auto;"><h1>Hello OpenShift Serverless: Serving!</h1><p><pre>serving: ${imagestream}</pre></p><p><pre>${sha256}</pre></p></div></main></body></html>`);
+  res.send(`<html><body style="background: #066964; padding: 30px;"><main style="height: 500px; width: 90%; margin: 0 auto; padding: 20px; display: flex; justify-content: center; align-items: center; resize: both; overflow: auto;"><div style="color: white; width: 90%; padding: 20px; resize: both; overflow: auto;"><h1>Hello OpenShift Serverless: Serving!</h1><p><pre>serving: ${imagestream}</pre></p><p><pre>${sha256}</pre></p></div></main></body></html>`);
 });
 
 const port = process.env.PORT || 8080;
